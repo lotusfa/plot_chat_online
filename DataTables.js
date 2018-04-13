@@ -1,16 +1,15 @@
-class DataSets {
+class DataTables {
 
 	constructor() {
-		console.log("dataSets constructuctor");
-		this.num_of_data_set = 0;
-		this.data_sets = [];
+		this.tables = [];
 		this.load();
 	}
 
 	create_data_set(csv_string, dataset_name){
-		this.data_sets[this.num_of_data_set] = new DataSet;
-		this.data_sets[this.num_of_data_set].import_csv(csv_string,dataset_name);
-		this.num_of_data_set++;
+
+		let temp_table = new DataTable;
+		temp_table.import_csv(csv_string,dataset_name);
+		this.tables.push(temp_table);
 
 		this.reset_html();
 		this.save();
@@ -20,28 +19,26 @@ class DataSets {
 		
 	}
 
+	save () {
+		localStorage.setItem('tables', JSON.stringify(this));
+	}
+
 	load () {
-		if (localStorage.getItem('data_sets') != null ){
-			let load_obj = localStorage.getItem('data_sets');
+		if (localStorage.getItem('tables') != null ){
+			let load_obj = localStorage.getItem('tables');
 			load_obj = JSON.parse(load_obj);
 
-			this.num_of_data_set = load_obj.num_of_data_set;
-			this.data_sets = load_obj.data_sets;
+			this.tables = load_obj.tables;
 
 			this.reset_html();
 		}
 	}
 
-	save () {
-		localStorage.setItem('data_sets', JSON.stringify(this));
-	}
-
 	reset_html () {
-
 		let r = document.getElementById('list_of_data_set');
 		r.innerHTML = "";
 
-		for (let i = 0; i < this.num_of_data_set ; i++) { 
+		for (let i = 0; i < this.tables.length; i++) { 
 			let t = document.createElement("div");
 			t.classList.add('form-check');
 
@@ -57,7 +54,7 @@ class DataSets {
 			t2.onclick = function() { select_ds(i); };
 
 			let t3 = document.createElement("a");
-			t3.innerHTML = this.data_sets[i].name;
+			t3.innerHTML = this.tables[i].name;
 
 			t1.appendChild(t2);
 			t1.appendChild(t3);
