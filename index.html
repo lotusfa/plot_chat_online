@@ -15,6 +15,7 @@
 	<!-- JS -->
 	<script src="./DataType.js"></script>
 	<script src="./DataColumn.js"></script>
+	<script src="./Chart.js"></script>
 	<script src="./DataTable.js"></script>
 	<script src="./DataTables.js"></script>
 
@@ -60,7 +61,7 @@
 			      	<fieldset class="form-group row">
 			      	  <legend class="col-form-legend col-sm-2">Table</legend>
 			      	  <div class="col-sm-10" id="list_of_data_set">
-			      	    empty dataSet
+			      	    empty
 			      	  </div>
 			      	</fieldset>
 
@@ -87,11 +88,11 @@
 			    <div class="col-sm border ml-1">
 			    	<div class="form-group">
 			    	    <label id="chart_col_label_1" >num col select</label>
-			    	    <select class="form-control" id="chart_col_list_1"></select>
+			    	    <select class="form-control" id="chart_col_list_1" onchange="select_col1()" ></select>
 			    	</div>
 			    	<div class="form-group">
 			    	    <label id="chart_col_label_2">text col select</label>
-			    	    <select class="form-control" id="chart_col_list_2"></select>
+			    	    <select class="form-control" id="chart_col_list_2" onchange="select_col2()" ></select>
 			    	</div>
 			    </div>
 			  </div>

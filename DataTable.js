@@ -47,6 +47,10 @@ class DataTable {
 
 	load_rows(csv_string,callback){
 		
+		if (csv_string[csv_string.length-1] != '\n') {
+			csv_string += '\n';
+		}
+
 		let s = csv_string.split('\n');
 		let num_of_row = s.length - 1;
 
