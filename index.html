@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DATA ANALYSIS</title>
+
+	<!-- Boostrap 4 -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+	<!-- JS -->
+	<script src="./DataSet.js"></script>
+	<script src="./DataSets.js"></script>
+	
+	<style type="text/css">
+		.ml-1 {
+		  margin: ($spacer) !important;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Data Analysis System</h2>
+		<hr>
+		<!-- IMPORT CSV PAGE -->
+		<div id="import_data">
+			<h4>Please Import your csv file</h4>
+			<form>
+				<div class="form-group">
+					<div class="form-group row">
+					    <label for="import_csv_file_name" class="col-sm-2 col-form-label">Name:</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="import_csv_file_name">
+					    </div>
+					  </div>
+
+				<div class="input-group row">
+					<label for="import_csv_file" class="col-sm-2 col-form-label">CSV:</label>
+					<div class="col-sm-10">
+						 <input type="file" class="form-control-file" id="import_csv_file" >
+					</div>
+			  	</div>
+			  	<br>
+				<button type="button" class="btn btn-primary active" onclick="import_dataset_click();">Import</button>
+			</form>
+		</div>
+
+		<hr>
+		<!-- CHOOSING DATASET AND CHART -->
+		<div id="dataset_chart">
+			<div class="row">
+			    <div class="col-sm border ml-1">
+
+			      	<fieldset class="form-group row">
+			      	  <legend class="col-form-legend col-sm-2">DataSet</legend>
+			      	  <div class="col-sm-10" id="list_of_data_set">
+			      	    <div class="form-check">
+			      	      <label class="form-check-label">
+			      	        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+			      	        Dataset 1
+			      	      </label>
+			      	    </div>
+			      	    <div class="form-check">
+			      	      <label class="form-check-label">
+			      	        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+			      	        Dataset 2
+			      	      </label>
+			      	    </div>
+			      	    <div class="form-check disabled">
+			      	      <label class="form-check-label">
+			      	        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+			      	        Dataset 3
+			      	      </label>
+			      	    </div>
+			      	  </div>
+			      	</fieldset>
+
+			    </div>
+			    <div class="col-sm border ml-1">
+			    	<fieldset class="form-group row">
+			      	  <legend class="col-form-legend col-sm-2">Charts</legend>
+			      	  <div class="col-sm-10">
+			      	    <div class="form-check">
+			      	      <label class="form-check-label">
+			      	        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+			      	        Pie Chart
+			      	      </label>
+			      	    </div>
+			      	    <div class="form-check">
+			      	      <label class="form-check-label">
+			      	        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+			      	        Bar Chart
+			      	      </label>
+			      	    </div>
+			      	  </div>
+			      	</fieldset>
+			    </div>
+			  </div>
+			  <br>
+			  <button type="button" class="btn btn-primary active" onclick="plot_chart();">Plot Chart</button>
+		</div>
+		<div id="chart">
+			
+		</div>
+	</div>
+
+	<script src="./main.js"></script>
+</body>
+</html>
